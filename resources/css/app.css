@@ -31,7 +31,7 @@
     --gray: #181818;
     --gray2: #5353534c;
     --gray3: #535353b6;
-    --gray-4: #b4b4b4;
+    --gray4: #b4b4b4;
     --white: #ffffff;
     --default-variant-color: #502302;
     --default-variant-color-header: #50230256;
@@ -74,7 +74,7 @@ a {
 }
 
 svg {
-    fill: var(--gray-4);
+    fill: var(--gray4);
 }
 
 .sidebar>div>div, .menu-label {
@@ -83,7 +83,7 @@ svg {
 
 .menu-label {
     font-weight: bold;
-    color: var(--gray-4);
+    color: var(--gray4);
     font-size: 0.8rem;
 }
 
@@ -105,7 +105,7 @@ hr {
 }
 
 .likeSongs {
-    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray-4));
+    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray4));
     padding: 1px 5px;
     margin-left: 2px;
 }
@@ -197,7 +197,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray-4));
+    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray4));
     min-width: 5.8rem;
     max-width: 5.8rem;
     min-height: 100%;
@@ -268,14 +268,14 @@ section {
 }
 
 .player-actual-music-image img {
-    max-width: 6vw;
+    max-width: 5vw;
 }
 
 .player-actual-music-infos {    
     margin-left: 0.8vw;
     display: flex;
     flex-direction: column;
-    max-width: 23vw;
+    max-width: 20vw;
     justify-content: center;
 }
 
@@ -296,6 +296,131 @@ section {
 }
 
 .player-actual-music-singer {
-    color: var(--gray-4);
+    color: var(--gray4);
     font-size: 0.8rem;
+}
+
+.player-controller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-controller-top {
+    margin-bottom: 0.3rem;
+}
+
+.player-controller-top button{
+    margin-right: 1rem;
+    background: none;
+    border: none;
+}
+
+.player-controller-top button:nth-child(3){
+    background: var(--white);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.player-controller-top button:nth-child(3) svg{
+    fill: black;
+}
+
+.player-controller-top button:hover:not(:nth-child(3)) svg{
+    fill: white;
+}
+
+.player-controller-top button:hover:nth-child(3) {
+    transform: scale(1.06);
+    transition: none 33ms cubic-bezier(.3,0,.7,1);
+}
+
+
+.player-controller-track {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.player-controller-track * {
+    margin-right: 1rem;
+    font-size: 0.8rem;
+    color: var(--gray4);
+}
+
+.player-controller-track-trackbar {
+    height: 3vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+}
+
+.player-controller-track-trackbar:hover  #tracked{
+    background-color: var(--green);
+}
+
+#inside-trackbar {
+    height: 5px;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: var(--gray3);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#tracked {
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    transform: translateX(-10px);
+    border-radius: 10px
+}
+
+.player-volume-controller {
+    display: flex;
+}
+
+.player-volume-controller > button{
+    margin-right: 0.4rem;
+    background: none;
+    border: none;
+}
+
+.player-volume-controller > button:hover svg{
+    fill: var(--white);
+}
+
+.player-volume-controller-volumebar {
+    display: flex;
+    align-items: center;
+}
+
+.player-volume-controller-volumebar-wrapper {
+    margin-left: 0.4rem;
+    height: 3vh;
+    width: 9vw;
+    display: flex;
+    align-items: center;
+}
+
+.player-volume-controller-volumebar-wrapper:hover .player-volume-controller-volumebar-tracked{
+    background-color: var(--green);
+}
+
+.player-volume-controller-volumebar-trackbar {
+    height: 5px;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: var(--gray3);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.player-volume-controller-volumebar-tracked {
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    transform: translateX(-10px);
+    border-radius: 10px
 }
