@@ -1,0 +1,301 @@
+/* Google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Project */
+
+:root {
+    --trans-x: 0px;
+    --black: #000000;
+    --black-arrow: #00000055;
+    --black-arrow-active: #000000a6;
+    --black-user-hover: #333333a6;
+    --gray: #181818;
+    --gray2: #5353534c;
+    --gray3: #535353b6;
+    --gray-4: #b4b4b4;
+    --white: #ffffff;
+    --default-variant-color: #502302;
+    --default-variant-color-header: #50230256;
+    --blue: #1b1bbb;
+    --blue2: #6262b5;
+    --green: #1ed760;
+}
+
+#app {
+    overflow: hidden;
+    font-family: Poppins;
+}
+
+.guify {
+    background-image: linear-gradient(to bottom, var(--default-variant-color), var(--gray), var(--gray));
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    position: relative;
+    width: 20.5vw;
+    height: 100vh;
+    padding-bottom: 14vh;
+}
+
+#guify-logo {
+    max-width: 70%;
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+a {
+    color: var(--white) !important;
+    text-decoration: none !important;
+}
+
+svg {
+    fill: var(--gray-4);
+}
+
+.sidebar>div>div, .menu-label {
+    cursor: pointer;
+}
+
+.menu-label {
+    font-weight: bold;
+    color: var(--gray-4);
+    font-size: 0.8rem;
+}
+
+.sidebar>div>div:hover svg,
+    .sidebar>div>div:hover .menu-label {
+    color: var(--white);
+    fill: var(--white);
+}
+
+.menu-label.active {
+    color: var(--white) !important;
+}
+
+hr {
+    margin: 1rem 0 !important;
+    color: inherit !important;
+    border: 0 !important;
+    border-top: 1px solid var(--white) !important;
+}
+
+.likeSongs {
+    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray-4));
+    padding: 1px 5px;
+    margin-left: 2px;
+}
+
+section {
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 14vh;
+}
+
+.header {
+    position: fixed;
+    height: 10vh;
+    width: 81.7vw;
+    background-color: var(--default-variant-color-header);
+    display: flex;
+    overflow: hidden;
+}
+
+.arrow {
+    height: 2rem;
+    width: 2.2rem;
+    background-color: var(--black-arrow);
+    border-radius: 50%;
+}
+
+.arrow-active {
+    cursor: pointer;
+    background-color: var(--black-arrow-active);
+}
+
+.menu-user {
+    max-width: 13vw;
+    padding: 4px;
+    border-radius: 1rem;
+    background-color: var(--black-arrow-active);
+    color: var(--white);
+}
+
+.menu-user:hover {
+    background-color: var(--black-user-hover);
+    cursor: pointer;
+}
+
+#img-user {
+    border-radius: 30%;
+    width: 1.8rem;
+}
+
+.user-name {
+    display: block;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.8rem;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.music-section {
+    padding: 15vh 3vw;
+    color: var(--white)
+}
+
+.first-music-section-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.first-music-section-card div {
+    display: flex;
+    align-items: center;
+    background-color: var(--gray2);
+    min-width: 20rem;
+    max-width: 20rem;
+    height: 5rem;
+    max-height: 5rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.2rem;
+    transition: all .3s ease;
+}
+
+.first-music-section-card div:hover {
+    background-color: var(--gray3);
+}
+
+.likeSongs-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray-4));
+    min-width: 5.8rem;
+    max-width: 5.8rem;
+    min-height: 100%;
+    max-height: 100%;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.likeSongs-card svg {
+    fill: var(--white);
+}
+
+.first-music-section-card div img {
+    max-width: 5.8rem;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.first-music-section-card div label {
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+.play-button{
+    width: auto;
+    padding: 1.1rem 1rem 1.1rem 0;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    width: 30%;
+    visibility: hidden;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.first-music-section-card div:hover .play-button{
+    visibility: visible;
+}
+
+.play-button button {
+    background-color: var(--green);
+    border: none;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    box-shadow: var(--gray) 0 3px 10px 1px;
+}
+
+.play-button svg {
+    fill: var(--black);
+}
+
+.player-bar {
+    display: flex;
+    padding: 1vh 2vw 1vh 1vw;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    height: 13vh;
+    width: 100vw;
+    background-color: var(--gray);
+    border-top: 2px solid var(--gray2);
+}
+
+.player-actual-music {
+    display: flex;
+}
+
+.player-actual-music-image img {
+    max-width: 6vw;
+}
+
+.player-actual-music-infos {    
+    margin-left: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    max-width: 23vw;
+    justify-content: center;
+}
+
+.player-actual-music-title {
+    overflow: hidden;
+    color: var(--white);
+}
+
+.player-actual-music-title div {
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translateX(var(--trans-x));
+    width: fit-content;
+}
+
+.player-actual-music-title label:hover {
+    text-decoration: underline;
+}
+
+.player-actual-music-singer {
+    color: var(--gray-4);
+    font-size: 0.8rem;
+}
