@@ -396,16 +396,16 @@ section {
     align-items: center;
 }
 
+.player-volume-controller-volumebar:hover .player-volume-controller-volumebar-tracked{
+    background-color: var(--green);
+}
+
 .player-volume-controller-volumebar-wrapper {
     margin-left: 0.4rem;
     height: 3vh;
     width: 9vw;
     display: flex;
     align-items: center;
-}
-
-.player-volume-controller-volumebar-wrapper:hover .player-volume-controller-volumebar-tracked{
-    background-color: var(--green);
 }
 
 .player-volume-controller-volumebar-trackbar {
