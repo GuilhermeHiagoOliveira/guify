@@ -4,11 +4,21 @@
     <SideBarLayout></SideBarLayout>
     <section>
       <HeaderLayout></HeaderLayout>
-      <div class="music-section">
-        <slot />
+      <div class="music-section" ref="music-section">
+        <slot :playSong="(file) => playSong(file)" />
       </div>
     </section>
-    <PlayerLayout></PlayerLayout>
+    <PlayerLayout
+      v-show="song"
+      :song="song"
+      :loaded="componentData.loaded"
+      @playPauseClick="(file) => playPauseClick(file)"
+      @suffleClick="suffleClick()"
+      @backClick="backClick()"
+      @nextClick="nextClick()"
+      @repeatClick="repeatClick()"
+    ></PlayerLayout>
+    <div id="slotPlayer"></div>
   </div>
 </template>
 
@@ -17,4 +27,93 @@ import SideBarLayout from "@/Layouts/SideBarLayout.vue";
 import HeaderLayout from "@/Layouts/HeaderLayout.vue";
 import PlayerLayout from "@/Layouts/PlayerLayout.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import { ref, reactive, onMounted, watch } from "vue";
+
+const list = [
+  {
+    title: "Rockeira",
+    file: "music1.mp3",
+    image: "nyan-cat-1.gif",
+    actor: "Grupo do ROCK Mané",
+  },
+  {
+    title: "Eletroniqueira",
+    file: "music2.mp3",
+    image: "cz-logo.webp",
+    actor: "Tuts tuts quero ver",
+  },
+];
+
+const componentData = reactive({
+  loaded: false,
+});
+
+var slotPlayer = undefined;
+var audioplayer = undefined;
+var endTime = undefined;
+const song = ref(undefined);
+
+function playSong(file) {
+  song.value = list.find((l) => l.file == file);
+  slotPlayer = document.getElementById("slotPlayer");
+  slotPlayer.innerHTML =
+    `<audio controls="" id="audioplayer">
+        <source src="musics/` +
+    file +
+    `" type="audio/mp3" />
+      </audio>`;
+  audioplayer = document.getElementById("audioplayer");
+  componentData.loaded = true;
+  audioplayer.play();
+  endTime = document.getElementsByClassName("player-controller-end-time")[0];
+
+  setTimeout(() => {
+    var hours = parseInt(audioplayer.duration / 3600);
+    var minutes = parseInt(audioplayer.duration / 60);
+    var seconds = parseInt(audioplayer.duration);
+    endTime.innerHTML = hours + ":" + minutes + seconds;
+  }, 200);
+}
+
+function playPauseClick(file) {
+  if (componentData.loaded == false) {
+    componentData.loaded = true;
+    audioplayer.play();
+  } else {
+    componentData.loaded = false;
+    audioplayer.pause();
+  }
+}
+
+function suffleClick() {
+  console.log("suffled playlist");
+}
+
+function backClick() {
+  console.log("back song");
+}
+
+function nextClick() {
+  console.log("next song");
+}
+
+function repeatClick() {
+  console.log("repeat song");
+}
+
+watch(song, () => {
+  var i = 0;
+  // while (i < 7) {
+  //   setTimeout(() => {
+  //     console.log(audioplayer.currentTime);
+  //     i++;
+  //   }, 1000);
+  // }
+  // audioplayer.duration
+});
+
+onMounted(() => {
+  // console.log(audioplayer.value.innerHTML)
+  // console.log(document.querySelectorAll('.test'));
+});
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar bg-black p-4">
+  <div class="sidebar p-4">
     <div>
       <div class="logo mb-4">
           <img src="img/guify-logo.png" alt="" id="guify-logo" />

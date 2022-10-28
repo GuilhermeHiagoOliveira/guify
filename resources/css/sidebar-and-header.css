@@ -1,0 +1,101 @@
+/* Sidebar */
+
+.sidebar {
+    position: relative;
+    width: 20.5vw;
+    height: 100vh;
+    padding-bottom: 14vh;
+    background-color: var(--black);
+}
+
+#guify-logo {
+    max-width: 70%;
+}
+
+a {
+    color: var(--white) !important;
+    text-decoration: none !important;
+}
+
+svg {
+    fill: var(--gray4);
+}
+
+.sidebar>div>div, .menu-label {
+    cursor: pointer;
+}
+
+.menu-label {
+    font-weight: bold;
+    color: var(--gray4);
+    font-size: 0.8rem;
+}
+
+.sidebar>div>div:hover svg,
+    .sidebar>div>div:hover .menu-label {
+    color: var(--white);
+    fill: var(--white);
+}
+
+.menu-label.active {
+    color: var(--white) !important;
+}
+
+.likeSongs {
+    background-image: linear-gradient(120deg, var(--blue), var(--blue2), var(--gray4));
+    padding: 1px 5px;
+    margin-left: 2px;
+}
+
+
+/* Top Header */
+
+.header {
+    position: fixed;
+    height: 10vh;
+    width: 81.7vw;
+    background-color: var(--default-variant-color-header);
+    display: flex;
+    overflow: hidden;
+    min-height: 60px;
+}
+
+.arrow {
+    height: 2rem;
+    width: 2.2rem;
+    background-color: var(--black-arrow);
+    border-radius: 50%;
+}
+
+.arrow-active {
+    cursor: pointer;
+    background-color: var(--black-arrow-active);
+}
+
+.menu-user {
+    max-width: 13vw;
+    padding: 4px;
+    border-radius: 1rem;
+    background-color: var(--black-arrow-active);
+    color: var(--white);
+}
+
+.menu-user:hover {
+    background-color: var(--black-user-hover);
+    cursor: pointer;
+}
+
+#img-user {
+    border-radius: 30%;
+    width: 1.8rem;
+}
+
+.user-name {
+    display: block;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 0.8rem;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,12 +1,27 @@
 <script setup>
 import BaseLayout from "@/Layouts/BaseLayout.vue";
 import { Head } from "@inertiajs/inertia-vue3";
+
+const list = [
+  {
+    name: "Rockeira",
+    file: "music1.mp3",
+    image: "nyan-cat-1.gif",
+    actor: "Grupo do ROCK Mané",
+  },
+  {
+    name: "Eletroniqueira",
+    file: "music2.mp3",
+    image: "cz-logo.webp",
+    actor: "Tuts tuts quero ver",
+  },
+];
 </script>
 
 <template>
   <Head title="Guify" />
 
-  <BaseLayout>
+  <BaseLayout v-slot="scope">
     <div class="first-music-section">
       <h2 class="mb-4"><b>Bom dia</b></h2>
       <div class="first-music-section-card">
@@ -25,7 +40,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           </span>
           <label>Músicas Curtidas</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="scope.playSong('teste2')">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -42,7 +57,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           <img src="img/nyan-cat-1.gif" alt="" />
           <label>Pagodeira</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="playSong(this)">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -59,7 +74,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           <img src="img/nyan-cat-1.gif" alt="" />
           <label>Funkeira</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="playSong(this)">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -76,7 +91,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           <img src="img/nyan-cat-1.gif" alt="" />
           <label>Sertanejeira</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="playSong(this)">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -89,11 +104,11 @@ import { Head } from "@inertiajs/inertia-vue3";
             </button>
           </span>
         </div>
-        <div>
-          <img src="img/nyan-cat-1.gif" alt="" />
-          <label>Rockeira</label>
+        <div v-for="l in list" :key="l">
+          <img :src="'img/' + l.image" alt="" />
+          <label>{{ l.name }}</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="scope.playSong(l.file)">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -106,11 +121,11 @@ import { Head } from "@inertiajs/inertia-vue3";
             </button>
           </span>
         </div>
-        <div>
+        <!-- <div>
           <img src="img/nyan-cat-1.gif" alt="" />
           <label>Eletroniqueira</label>
           <span class="play-button">
-            <button aria-label="Play">
+            <button aria-label="Play" @click="playSong(this)">
               <span
                 ><span>
                   <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -122,7 +137,7 @@ import { Head } from "@inertiajs/inertia-vue3";
               </span>
             </button>
           </span>
-        </div>
+        </div> -->
       </div>
     </div>
   </BaseLayout>
