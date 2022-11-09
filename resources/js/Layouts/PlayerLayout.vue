@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch, reactive } from "vue";
 
 // Player Title Move -----------------------------------------------------------
 
@@ -61,7 +61,9 @@ const playPauseBtn = ref("playPauseBtn");
 const nextBtn = ref("nextBtn");
 const repeatBtn = ref("suffleBtn");
 
-const props = defineProps(['song', 'loaded'])
+const props = defineProps(['song', 'loaded', 'track']);
+
+
 
 </script>
 
@@ -102,7 +104,7 @@ const props = defineProps(['song', 'loaded'])
 
         <div class="player-controller-track">
             <div class="player-controller-start-time">
-                0:00
+                {{ props.track.trackTime }}
             </div>
             <div class="player-controller-track-trackbar">
                 <div id="inside-trackbar">

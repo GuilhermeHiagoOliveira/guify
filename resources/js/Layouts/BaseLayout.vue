@@ -12,6 +12,7 @@
       v-show="song"
       :song="song"
       :loaded="componentData.loaded"
+      :track="componentData.track"
       @playPauseClick="(file) => playPauseClick(file)"
       @suffleClick="suffleClick()"
       @backClick="backClick()"
@@ -46,6 +47,10 @@ const list = [
 
 const componentData = reactive({
   loaded: false,
+  track: {
+    trackTime: '0:00',
+    trackBar: 0,
+  }
 });
 
 var slotPlayer = undefined;
@@ -54,6 +59,8 @@ var endTime = undefined;
 const song = ref(undefined);
 
 function playSong(file) {
+  song.value = null;
+  setTimeout(() => {
   song.value = list.find((l) => l.file == file);
   slotPlayer = document.getElementById("slotPlayer");
   slotPlayer.innerHTML =
@@ -66,13 +73,14 @@ function playSong(file) {
   componentData.loaded = true;
   audioplayer.play();
   endTime = document.getElementsByClassName("player-controller-end-time")[0];
+  },100);
 
   setTimeout(() => {
     var hours = parseInt(audioplayer.duration / 3600);
     var minutes = parseInt(audioplayer.duration / 60);
     var seconds = parseInt(audioplayer.duration);
     endTime.innerHTML = hours + ":" + minutes + seconds;
-  }, 200);
+  }, 300);
 }
 
 function playPauseClick(file) {
@@ -102,14 +110,15 @@ function repeatClick() {
 }
 
 watch(song, () => {
-  var i = 0;
-  // while (i < 7) {
-  //   setTimeout(() => {
-  //     console.log(audioplayer.currentTime);
-  //     i++;
-  //   }, 1000);
-  // }
-  // audioplayer.duration
+  var intervalId = window.setInterval(function () {
+    // call your function here
+    componentData.track.trackTime = '0:0' + parseInt(audioplayer.currentTime);
+    componentData.track.trackBar = (audioplayer.currentTime * 100) / audioplayer.duration;
+    if (audioplayer.currentTime == audioplayer.duration)
+    {
+      clearInterval(intervalId);
+    }
+  }, 1000);
 });
 
 onMounted(() => {
